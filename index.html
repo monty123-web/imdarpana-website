@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ImQaaifah Academy — JEE | NEET | 11th & 12th</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
 <style>
   :root {
     --navy: #0a0f2e;
@@ -25,7 +26,6 @@
   html { scroll-behavior: smooth; }
   body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--navy); line-height: 1.6; }
 
-  /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
     background: rgba(10,15,46,0.97); backdrop-filter: blur(12px);
@@ -33,7 +33,7 @@
     padding: 0 5%; height: 68px;
     border-bottom: 1px solid rgba(232,166,0,0.18);
   }
-  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; cursor: pointer; }
   .nav-logo .logo-icon {
     width: 38px; height: 38px; background: var(--gold);
     border-radius: 8px; display: flex; align-items: center; justify-content: center;
@@ -43,22 +43,20 @@
   .nav-links { display: flex; gap: 8px; align-items: center; }
   .nav-links a {
     color: rgba(255,255,255,0.75); text-decoration: none; font-size: 14px; font-weight: 500;
-    padding: 8px 14px; border-radius: 8px; transition: var(--transition);
+    padding: 8px 14px; border-radius: 8px; cursor: pointer; transition: var(--transition);
   }
   .nav-links a:hover, .nav-links a.active { color: var(--gold-light); background: rgba(232,166,0,0.1); }
   .nav-cta {
     background: var(--gold); color: var(--navy); font-weight: 600; font-size: 14px;
-    padding: 9px 20px; border-radius: 9px; text-decoration: none; transition: var(--transition);
+    padding: 9px 20px; border-radius: 9px; text-decoration: none; cursor: pointer; transition: var(--transition);
   }
   .nav-cta:hover { background: var(--gold-light); color: var(--navy); }
   .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
   .hamburger span { width: 22px; height: 2px; background: var(--white); border-radius: 2px; transition: var(--transition); }
 
-  /* PAGES */
   .page { display: none; min-height: 100vh; padding-top: 68px; }
   .page.active { display: block; }
 
-  /* ===== HOME PAGE ===== */
   .hero {
     background: var(--navy);
     min-height: calc(100vh - 68px);
@@ -100,7 +98,6 @@
     cursor: pointer; transition: var(--transition); display: inline-flex; align-items: center; gap: 8px;
   }
   .btn-outline:hover { border-color: var(--gold-light); color: var(--gold-light); transform: translateY(-2px); }
-
   .hero-stats {
     display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 40px;
   }
@@ -110,14 +107,11 @@
   }
   .stat-card .num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: var(--gold-light); }
   .stat-card .lbl { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 3px; }
-
-  .hero-visual {
-    display: flex; flex-direction: column; gap: 16px;
-  }
+  .hero-visual { display: flex; flex-direction: column; gap: 16px; }
   .course-preview-card {
     background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
     border-radius: var(--radius); padding: 20px 22px;
-    display: flex; align-items: center; gap: 14px; transition: var(--transition);
+    display: flex; align-items: center; gap: 14px; cursor: pointer; transition: var(--transition);
   }
   .course-preview-card:hover { background: rgba(255,255,255,0.11); border-color: rgba(232,166,0,0.3); transform: translateX(4px); }
   .cpcard-icon {
@@ -131,7 +125,6 @@
   .cpcard-info p { color: rgba(255,255,255,0.5); font-size: 13px; }
   .cpcard-arrow { margin-left: auto; color: var(--gold); font-size: 18px; }
 
-  /* SECTIONS */
   section { padding: 80px 5%; }
   .section-label {
     font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
@@ -146,7 +139,6 @@
   .section-dark .section-title { color: var(--white); }
   .section-dark .section-sub { color: rgba(255,255,255,0.5); }
 
-  /* WHY US */
   .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 22px; max-width: 1100px; margin: 0 auto; }
   .why-card {
     background: var(--white); border-radius: var(--radius); padding: 28px 24px;
@@ -157,13 +149,11 @@
   .why-card h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
   .why-card p { color: var(--text-muted); font-size: 14px; line-height: 1.65; }
 
-  /* RESULTS TICKER */
   .results-bar { background: var(--gold); padding: 14px 0; overflow: hidden; }
   .ticker-track { display: flex; gap: 60px; animation: ticker 28s linear infinite; white-space: nowrap; }
   .ticker-track span { font-weight: 700; font-size: 14px; color: var(--navy); letter-spacing: 0.5px; }
   @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-  /* TESTIMONIALS */
   .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
   .testi-card {
     background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
@@ -177,7 +167,6 @@
   .testi-author-info .name { color: var(--white); font-size: 14px; font-weight: 600; }
   .testi-author-info .rank { color: var(--gold-light); font-size: 12px; }
 
-  /* ===== COURSES PAGE ===== */
   .page-header {
     background: var(--navy); padding: 60px 5% 56px; text-align: center;
   }
@@ -192,17 +181,13 @@
     transition: var(--transition);
   }
   .tab-btn.active, .tab-btn:hover { background: var(--navy); color: var(--gold-light); border-color: var(--navy); }
-
   .courses-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px,1fr)); gap: 22px; }
   .course-card {
     background: var(--white); border-radius: 16px; overflow: hidden;
     box-shadow: var(--shadow); border: 1px solid rgba(10,15,46,0.06); transition: var(--transition);
   }
   .course-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(10,15,46,0.14); }
-  .course-card-top {
-    padding: 24px 24px 20px;
-    position: relative;
-  }
+  .course-card-top { padding: 24px 24px 20px; }
   .course-tag {
     display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
     padding: 4px 10px; border-radius: 50px; margin-bottom: 14px;
@@ -223,11 +208,10 @@
   .enroll-btn {
     background: var(--navy); color: var(--white); font-size: 13px; font-weight: 600;
     padding: 9px 18px; border-radius: 8px; border: none; cursor: pointer; transition: var(--transition);
-    text-decoration: none;
+    text-decoration: none; display: inline-block;
   }
   .enroll-btn:hover { background: var(--gold); color: var(--navy); }
 
-  /* ===== FACULTY PAGE ===== */
   .faculty-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 24px; max-width: 1100px; margin: 0 auto; }
   .faculty-card {
     background: var(--white); border-radius: var(--radius); overflow: hidden;
@@ -249,8 +233,6 @@
   .faculty-tags { display: flex; flex-wrap: wrap; gap: 6px; }
   .faculty-tag { background: var(--cream-dark); font-size: 11px; font-weight: 600; color: var(--navy); padding: 4px 10px; border-radius: 50px; }
 
-  /* ===== RESULTS PAGE ===== */
-  .results-hero { background: var(--navy); padding: 60px 5%; text-align: center; }
   .big-numbers { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 24px; max-width: 900px; margin: 0 auto 60px; }
   .big-num { text-align: center; }
   .big-num .n { font-family: 'Playfair Display', serif; font-size: 54px; font-weight: 900; color: var(--gold-light); line-height: 1; }
@@ -274,9 +256,7 @@
   .topper-card .score { font-size: 20px; font-weight: 800; color: var(--gold); }
   .topper-card .exam { font-size: 12px; color: var(--text-muted); }
 
-  /* ===== ADMISSION PAGE ===== */
   .admission-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 60px; align-items: start; max-width: 1100px; margin: 0 auto; }
-  .admission-steps { }
   .step-item { display: flex; gap: 16px; margin-bottom: 32px; }
   .step-num { width: 40px; height: 40px; border-radius: 50%; background: var(--gold); color: var(--navy); font-weight: 800; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
   .step-content h4 { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 5px; }
@@ -287,32 +267,16 @@
     background: var(--white); border-radius: 20px; padding: 36px 32px;
     box-shadow: 0 8px 48px rgba(10,15,46,0.10); border: 1px solid rgba(10,15,46,0.06);
   }
-  .admission-form h3 { font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
-  .admission-form .sub { color: var(--text-muted); font-size: 14px; margin-bottom: 24px; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .form-group { margin-bottom: 16px; }
-  .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
-  .form-group input, .form-group select, .form-group textarea {
-    width: 100%; padding: 11px 14px; border: 1.5px solid rgba(10,15,46,0.12);
-    border-radius: 9px; font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--navy);
-    background: var(--cream); outline: none; transition: var(--transition);
+  .admission-form h3 { font-size: 26px; font-weight: 700; color: var(--navy); margin-bottom: 8px; text-align: center; }
+  .admission-form .sub { color: var(--text-muted); font-size: 15px; margin-bottom: 24px; text-align: center; }
+  
+  /* Form iframe responsive */
+  .admission-form iframe {
+    width: 100% !important;
+    height: 900px !important;
+    border-radius: 12px;
   }
-  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-    border-color: var(--gold); box-shadow: 0 0 0 3px rgba(232,166,0,0.12);
-  }
-  .form-group textarea { resize: vertical; min-height: 90px; }
-  .submit-btn {
-    width: 100%; background: var(--navy); color: var(--white); font-family: 'DM Sans', sans-serif;
-    font-size: 15px; font-weight: 700; padding: 13px; border-radius: 10px; border: none;
-    cursor: pointer; transition: var(--transition); margin-top: 6px;
-  }
-  .submit-btn:hover { background: var(--gold); color: var(--navy); }
-  .form-success { display: none; text-align: center; padding: 30px 0; }
-  .form-success .icon { font-size: 48px; margin-bottom: 14px; }
-  .form-success h4 { font-size: 22px; font-weight: 700; color: var(--green); margin-bottom: 8px; }
-  .form-success p { color: var(--text-muted); font-size: 14px; }
 
-  /* FOOTER */
   footer {
     background: var(--navy); padding: 56px 5% 32px;
     border-top: 1px solid rgba(232,166,0,0.15);
@@ -320,15 +284,13 @@
   .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 40px; margin-bottom: 40px; }
   .footer-brand p { color: rgba(255,255,255,0.5); font-size: 14px; line-height: 1.7; margin: 14px 0 20px; max-width: 280px; }
   .footer-col h4 { color: var(--white); font-size: 14px; font-weight: 700; margin-bottom: 16px; letter-spacing: 0.5px; }
-  .footer-col a { display: block; color: rgba(255,255,255,0.5); font-size: 14px; text-decoration: none; margin-bottom: 8px; transition: var(--transition); }
+  .footer-col a { display: block; color: rgba(255,255,255,0.5); font-size: 14px; text-decoration: none; margin-bottom: 8px; cursor: pointer; transition: var(--transition); }
   .footer-col a:hover { color: var(--gold-light); }
   .footer-contact-item { display: flex; gap: 8px; align-items: flex-start; color: rgba(255,255,255,0.5); font-size: 13px; margin-bottom: 10px; }
   .footer-contact-item span:first-child { color: var(--gold); flex-shrink: 0; }
-  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 22px; display: flex; align-items: center; justify-content: space-between; flex-wrap: gap; gap: 10px; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 22px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
   .footer-bottom p { color: rgba(255,255,255,0.35); font-size: 13px; }
 
-  
-  /* MOBILE */
   @media (max-width: 768px) {
     .nav-links { display: none; position: absolute; top: 68px; left: 0; right: 0; background: var(--navy); flex-direction: column; padding: 16px 5%; gap: 4px; border-bottom: 1px solid rgba(232,166,0,0.15); }
     .nav-links.open { display: flex; }
@@ -339,40 +301,38 @@
     .hero-stats { grid-template-columns: repeat(3,1fr); }
     .admission-grid { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
-    .form-row { grid-template-columns: 1fr; }
-    .chat-window { width: calc(100vw - 30px); right: 15px; bottom: 88px; }
+    .admission-form iframe { height: 1100px !important; }
   }
   @media (max-width: 480px) {
     .footer-grid { grid-template-columns: 1fr; }
     .hero-stats { gap: 8px; }
     .big-numbers { grid-template-columns: 1fr 1fr; }
+    .admission-form iframe { height: 1300px !important; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav id="main-nav">
-  <a href="#" class="nav-logo" onclick="showPage('home')">
+  <a class="nav-logo" onclick="showPage('home')">
     <div class="logo-icon">A</div>
     <span>ImQaaifah Academy</span>
   </a>
   <div class="nav-links" id="nav-links">
-    <a href="#" class="active" onclick="showPage('home')">Home</a>
-    <a href="#" onclick="showPage('courses')">Courses</a>
-    <a href="#" onclick="showPage('faculty')">Faculty</a>
-    <a href="#" onclick="showPage('results')">Results</a>
-    <a href="#" onclick="showPage('admission')">Admission</a>
-    <a href="#" class="nav-cta" onclick="showPage('admission')">Enroll Now</a>
+    <a onclick="showPage('home')">Home</a>
+    <a onclick="showPage('courses')">Courses</a>
+    <a onclick="showPage('faculty')">Faculty</a>
+    <a onclick="showPage('results')">Results</a>
+    <a onclick="showPage('admission')">Admission</a>
+    <a class="nav-cta" onclick="showPage('admission')">Enroll Now</a>
   </div>
-  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+  <div class="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </div>
 </nav>
 
-<!-- ===== HOME PAGE ===== -->
+<!-- HOME PAGE -->
 <div class="page active" id="page-home">
-
   <div class="hero">
     <div class="hero-grid">
       <div>
@@ -380,8 +340,8 @@
         <h1>Where <span>Toppers</span> Are Made, Not Born</h1>
         <p>Expert coaching for JEE Main & Advanced, NEET UG, and 11th–12th Board examinations. Join 12,000+ students who cracked India's toughest exams.</p>
         <div class="hero-actions">
-          <a href="#" class="btn-primary" onclick="showPage('admission')">Start Your Journey →</a>
-          <a href="#" class="btn-outline" onclick="showPage('results')">Our Results</a>
+          <a class="btn-primary" onclick="showPage('admission')">Start Your Journey →</a>
+          <a class="btn-outline" onclick="showPage('results')">Our Results</a>
         </div>
         <div class="hero-stats">
           <div class="stat-card"><div class="num">98%</div><div class="lbl">Selection Rate</div></div>
@@ -390,31 +350,14 @@
         </div>
       </div>
       <div class="hero-visual">
-        <div class="course-preview-card" onclick="showPage('courses')">
-          <div class="cpcard-icon jee">⚛️</div>
-          <div class="cpcard-info"><h4>JEE Main & Advanced</h4><p>2-Year & 1-Year Programs</p></div>
-          <div class="cpcard-arrow">›</div>
-        </div>
-        <div class="course-preview-card" onclick="showPage('courses')">
-          <div class="cpcard-icon neet">🧬</div>
-          <div class="cpcard-info"><h4>NEET UG</h4><p>Medical Entrance Coaching</p></div>
-          <div class="cpcard-arrow">›</div>
-        </div>
-        <div class="course-preview-card" onclick="showPage('courses')">
-          <div class="cpcard-icon boards">📚</div>
-          <div class="cpcard-info"><h4>11th & 12th Boards</h4><p>CBSE / JK Board Excellence</p></div>
-          <div class="cpcard-arrow">›</div>
-        </div>
-        <div class="course-preview-card" onclick="showPage('courses')">
-          <div class="cpcard-icon" style="background:rgba(255,80,80,0.15)">🎯</div>
-          <div class="cpcard-info"><h4>Crash Courses</h4><p>Last-minute exam prep</p></div>
-          <div class="cpcard-arrow">›</div>
-        </div>
+        <div class="course-preview-card" onclick="showPage('courses')"><div class="cpcard-icon jee">⚛️</div><div class="cpcard-info"><h4>JEE Main & Advanced</h4><p>2-Year & 1-Year Programs</p></div><div class="cpcard-arrow">›</div></div>
+        <div class="course-preview-card" onclick="showPage('courses')"><div class="cpcard-icon neet">🧬</div><div class="cpcard-info"><h4>NEET UG</h4><p>Medical Entrance Coaching</p></div><div class="cpcard-arrow">›</div></div>
+        <div class="course-preview-card" onclick="showPage('courses')"><div class="cpcard-icon boards">📚</div><div class="cpcard-info"><h4>11th & 12th Boards</h4><p>CBSE / JK Board Excellence</p></div><div class="cpcard-arrow">›</div></div>
+        <div class="course-preview-card" onclick="showPage('courses')"><div class="cpcard-icon" style="background:rgba(255,80,80,0.15)">🎯</div><div class="cpcard-info"><h4>Crash Courses</h4><p>Last-minute exam prep</p></div><div class="cpcard-arrow">›</div></div>
       </div>
     </div>
   </div>
 
-  <!-- Ticker -->
   <div class="results-bar">
     <div class="ticker-track">
       <span>🏅 Aadil Mir — JEE Advanced AIR 214</span>
@@ -432,7 +375,6 @@
     </div>
   </div>
 
-  <!-- Why Us -->
   <section style="padding: 80px 5%; background: var(--cream);">
     <div style="max-width: 1100px; margin: 0 auto;">
       <div style="text-align: center; margin-bottom: 48px;">
@@ -441,41 +383,16 @@
         <p class="section-sub" style="margin: 0 auto; text-align: center;">Proven systems, experienced mentors, and a culture of excellence that goes beyond textbooks.</p>
       </div>
       <div class="why-grid">
-        <div class="why-card">
-          <div class="why-icon">👨🏫</div>
-          <h3>IIT/AIIMS Alumni Faculty</h3>
-          <p>Learn directly from 80+ faculty who have cracked the same exams. They know every trick, every pattern.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">🧠</div>
-          <h3>Adaptive Learning System</h3>
-          <p>Our AI-driven test analytics identifies weak areas and creates personalized study plans for each student.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">📊</div>
-          <h3>3500+ Practice Tests</h3>
-          <p>Chapter tests, part tests, full-syllabus mocks — all patterned on the latest NTA and NEET formats.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">🏠</div>
-          <h3>Hostel & Study Facilities</h3>
-          <p>Comfortable hostels with dedicated study halls, libraries, and 24/7 doubt resolution support.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">💬</div>
-          <h3>1-on-1 Mentorship</h3>
-          <p>Each student is paired with a mentor who tracks progress and provides bi-weekly counseling sessions.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">🎓</div>
-          <h3>Scholarship Programs</h3>
-          <p>Merit-based scholarships up to 100% fee waiver for economically weaker students with strong potential.</p>
-        </div>
+        <div class="why-card"><div class="why-icon">👨🏫</div><h3>IIT/AIIMS Alumni Faculty</h3><p>Learn directly from 80+ faculty who have cracked the same exams.</p></div>
+        <div class="why-card"><div class="why-icon">🧠</div><h3>Adaptive Learning System</h3><p>AI-driven test analytics identifies weak areas and creates personalized study plans.</p></div>
+        <div class="why-card"><div class="why-icon">📊</div><h3>3500+ Practice Tests</h3><p>Chapter tests, part tests, full-syllabus mocks patterned on latest NTA formats.</p></div>
+        <div class="why-card"><div class="why-icon">🏠</div><h3>Hostel & Study Facilities</h3><p>Comfortable hostels with dedicated study halls, libraries, and 24/7 doubt resolution.</p></div>
+        <div class="why-card"><div class="why-icon">💬</div><h3>1-on-1 Mentorship</h3><p>Each student paired with a mentor who tracks progress and provides counseling.</p></div>
+        <div class="why-card"><div class="why-icon">🎓</div><h3>Scholarship Programs</h3><p>Merit-based scholarships up to 100% fee waiver for deserving students.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- Testimonials -->
   <section class="section-dark">
     <div style="max-width: 1100px; margin: 0 auto;">
       <div style="text-align: center; margin-bottom: 48px;">
@@ -483,436 +400,81 @@
         <h2 class="section-title">Words From Our Toppers</h2>
       </div>
       <div class="testi-grid">
-        <div class="testi-card">
-          <div class="testi-stars">★★★★★</div>
-          <p class="testi-text">"ImQaaifah transformed my approach to Physics. The faculty didn't just teach — they made me love the subject. Got AIR 214 in JEE Advanced!"</p>
-          <div class="testi-author">
-            <div class="testi-avatar" style="background: rgba(59,91,219,0.2); color: #7da8f5;">AM</div>
-            <div class="testi-author-info">
-              <span class="name">Aadil Mir</span>
-              <span class="rank">JEE Advanced AIR 214 → IIT Delhi</span>
-            </div>
-          </div>
-        </div>
-        <div class="testi-card">
-          <div class="testi-stars">★★★★★</div>
-          <p class="testi-text">"The Biology faculty here is exceptional. Their notes, daily practice, and mock tests gave me 710/720 in NEET. Joining AIIMS Delhi this year!"</p>
-          <div class="testi-author">
-            <div class="testi-avatar" style="background: rgba(26,158,92,0.2); color: #5de0a0;">RW</div>
-            <div class="testi-author-info">
-              <span class="name">Rubina Wani</span>
-              <span class="rank">NEET 710/720 → AIIMS Delhi</span>
-            </div>
-          </div>
-        </div>
-        <div class="testi-card">
-          <div class="testi-stars">★★★★★</div>
-          <p class="testi-text">"Small batch size meant I could ask unlimited doubts. The problem-solving approach they taught is something I still use in IIT today."</p>
-          <div class="testi-author">
-            <div class="testi-avatar" style="background: rgba(232,166,0,0.2); color: #d4a017;">FS</div>
-            <div class="testi-author-info">
-              <span class="name">Farhan Sheikh</span>
-              <span class="rank">JEE Advanced AIR 312 → IIT Bombay</span>
-            </div>
-          </div>
-        </div>
+        <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"ImQaaifah transformed my approach to Physics. Got AIR 214 in JEE Advanced!"</p><div class="testi-author"><div class="testi-avatar" style="background: rgba(59,91,219,0.2); color: #7da8f5;">AM</div><div class="testi-author-info"><span class="name">Aadil Mir</span><span class="rank">JEE Advanced AIR 214 → IIT Delhi</span></div></div></div>
+        <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"The Biology faculty here is exceptional. Got 710/720 in NEET. Joining AIIMS Delhi!"</p><div class="testi-author"><div class="testi-avatar" style="background: rgba(26,158,92,0.2); color: #5de0a0;">RW</div><div class="testi-author-info"><span class="name">Rubina Wani</span><span class="rank">NEET 710/720 → AIIMS Delhi</span></div></div></div>
+        <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Small batch size meant I could ask unlimited doubts. The problem-solving approach is excellent."</p><div class="testi-author"><div class="testi-avatar" style="background: rgba(232,166,0,0.2); color: #d4a017;">FS</div><div class="testi-author-info"><span class="name">Farhan Sheikh</span><span class="rank">JEE Advanced AIR 312 → IIT Bombay</span></div></div></div>
       </div>
     </div>
   </section>
 
-  <!-- CTA Banner -->
   <section style="background: var(--gold); padding: 60px 5%; text-align: center;">
     <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(24px,4vw,38px); font-weight: 900; color: var(--navy); margin-bottom: 14px;">Your IIT / AIIMS Dream Starts Here</h2>
     <p style="color: rgba(10,15,46,0.65); font-size: 16px; margin-bottom: 28px;">Admissions open for 2025–26 batch. Limited seats — don't wait.</p>
-    <a href="#" class="btn-primary" style="background: var(--navy); color: var(--white);" onclick="showPage('admission')">Apply Now — Free Counseling →</a>
+    <a class="btn-primary" style="background: var(--navy); color: var(--white);" onclick="showPage('admission')">Apply Now — Free Counseling →</a>
   </section>
 
   <footer>
     <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="nav-logo" style="margin-bottom: 0;">
-          <div class="logo-icon">A</div>
-          <span>ImQaaifah Academy</span>
-        </div>
-        <p>Kashmir's premier coaching institute for JEE, NEET, and Board examinations since 2008. Shaping tomorrow's doctors and engineers.</p>
-        <div style="display: flex; gap: 10px;">
-          <div style="width: 34px; height: 34px; border-radius: 8px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: var(--gold-light); cursor: pointer; font-size: 16px;">f</div>
-          <div style="width: 34px; height: 34px; border-radius: 8px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: var(--gold-light); cursor: pointer; font-size: 16px;">in</div>
-          <div style="width: 34px; height: 34px; border-radius: 8px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: var(--gold-light); cursor: pointer; font-size: 15px;">yt</div>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Programs</h4>
-        <a href="#" onclick="showPage('courses')">JEE Main & Advanced</a>
-        <a href="#" onclick="showPage('courses')">NEET UG</a>
-        <a href="#" onclick="showPage('courses')">11th & 12th CBSE</a>
-        <a href="#" onclick="showPage('courses')">Crash Courses</a>
-        <a href="#" onclick="showPage('courses')">Repeater Batch</a>
-      </div>
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <a href="#" onclick="showPage('faculty')">Our Faculty</a>
-        <a href="#" onclick="showPage('results')">Results 2024</a>
-        <a href="#" onclick="showPage('admission')">Admission Process</a>
-        <a href="#" onclick="showPage('admission')">Scholarships</a>
-        <a href="#">Study Material</a>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <div class="footer-contact-item"><span>📍</span><span>Residency Road, Srinagar, J&K — 190001</span></div>
-        <div class="footer-contact-item"><span>📞</span><span>+91 194 247 0000</span></div>
-        <div class="footer-contact-item"><span>✉️</span><span>info@ImQaaifahacademy.in</span></div>
-        <div class="footer-contact-item"><span>🕐</span><span>Mon–Sat: 8AM – 8PM</span></div>
-      </div>
+      <div class="footer-brand"><div class="nav-logo" style="margin-bottom: 0;"><div class="logo-icon">A</div><span>ImQaaifah Academy</span></div><p>Kashmir's premier coaching institute for JEE, NEET, and Board examinations since 2008.</p></div>
+      <div class="footer-col"><h4>Programs</h4><a onclick="showPage('courses')">JEE Main & Advanced</a><a onclick="showPage('courses')">NEET UG</a><a onclick="showPage('courses')">11th & 12th CBSE</a><a onclick="showPage('courses')">Crash Courses</a></div>
+      <div class="footer-col"><h4>Quick Links</h4><a onclick="showPage('faculty')">Our Faculty</a><a onclick="showPage('results')">Results 2024</a><a onclick="showPage('admission')">Admission Process</a><a onclick="showPage('admission')">Scholarships</a></div>
+      <div class="footer-col"><h4>Contact</h4><div class="footer-contact-item"><span>📍</span><span>Residency Road, Srinagar</span></div><div class="footer-contact-item"><span>📞</span><span>+91 194 247 0000</span></div><div class="footer-contact-item"><span>✉️</span><span>info@ImQaaifahacademy.in</span></div></div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2025 ImQaaifah Academy. All Rights Reserved.</p>
-      <p>Privacy Policy · Terms of Use</p>
-    </div>
+    <div class="footer-bottom"><p>© 2025 ImQaaifah Academy. All Rights Reserved.</p><p>Privacy Policy · Terms of Use</p></div>
   </footer>
 </div>
 
-<!-- ===== COURSES PAGE ===== -->
+<!-- COURSES PAGE -->
 <div class="page" id="page-courses">
-  <div class="page-header">
-    <h2>Our Programs</h2>
-    <p>Comprehensive courses designed by IITians and AIIMS alumni to maximize your selection chances.</p>
-  </div>
+  <div class="page-header"><h2>Our Programs</h2><p>Comprehensive courses designed by IITians and AIIMS alumni to maximize your selection chances.</p></div>
   <div class="courses-section">
-    <div class="course-tabs">
-      <button class="tab-btn active" onclick="filterCourses('all', this)">All Programs</button>
-      <button class="tab-btn" onclick="filterCourses('jee', this)">JEE</button>
-      <button class="tab-btn" onclick="filterCourses('neet', this)">NEET</button>
-      <button class="tab-btn" onclick="filterCourses('boards', this)">Boards</button>
-    </div>
+    <div class="course-tabs"><button class="tab-btn active" onclick="filterCourses('all', this)">All Programs</button><button class="tab-btn" onclick="filterCourses('jee', this)">JEE</button><button class="tab-btn" onclick="filterCourses('neet', this)">NEET</button><button class="tab-btn" onclick="filterCourses('boards', this)">Boards</button></div>
     <div class="courses-grid" id="courses-grid">
-
-      <div class="course-card" data-cat="jee">
-        <div class="course-card-top">
-          <span class="course-tag tag-jee">JEE</span>
-          <h3>JEE 2-Year Foundation</h3>
-          <p>Complete 11th + 12th syllabus with JEE-level depth. Start early, build strong concepts from day one.</p>
-          <div class="course-card-meta">
-            <div class="meta-item">📅 2 Years</div>
-            <div class="meta-item">👥 Max 30/batch</div>
-            <div class="meta-item">📖 Physics, Chemistry, Maths</div>
-          </div>
-        </div>
-        <div class="course-card-footer">
-          <div class="price">₹1,20,000 <span>/year</span></div>
-          <a href="#" class="enroll-btn" onclick="showPage('admission')">Enroll</a>
-        </div>
-      </div>
-
-      <div class="course-card" data-cat="jee">
-        <div class="course-card-top">
-          <span class="course-tag tag-jee">JEE</span>
-          <h3>JEE 1-Year Intensive</h3>
-          <p>For 12th students. Fast-track revision + problem solving + 200+ mock tests. Proven AIR results.</p>
-          <div class="course-card-meta">
-            <div class="meta-item">📅 1 Year</div>
-            <div class="meta-item">👥 Max 25/batch</div>
-            <div class="meta-item">⏰ 8–10 hrs/day</div>
-          </div>
-        </div>
-        <div class="course-card-footer">
-          <div class="price">₹95,000 <span>/year</span></div>
-          <a href="#" class="enroll-btn" onclick="showPage('admission')">Enroll</a>
-        </div>
-      </div>
-
-      <div class="course-card" data-cat="jee">
-        <div class="course-card-top">
-          <span class="course-tag tag-jee">JEE</span>
-          <h3>JEE Dropper Batch</h3>
-          <p>Specially designed for serious repeaters. High intensity, full syllabus coverage, daily test series.</p>
-          <div class="course-card-meta">
-            <div class="meta-item">📅 11 Months</div>
-            <div class="meta-item">👥 Max 20/batch</div>
-            <div class="meta-item">🎯 AIR Focus</div>
-          </div>
-        </div>
-        <div class="course-card-footer">
-          <div class="price">₹85,000 <span>/year</span></div>
-          <a href="#" class="enroll-btn" onclick="showPage('admission')">Enroll</a>
-        </div>
-      </div>
-
-      <div class="course-card" data-cat="neet">
-        <div class="course-card-top">
-          <span class="course-tag tag-neet">NEET</span>
-          <h3>NEET 2-Year Foundation</h3>
-          <p>Full 11th + 12th Biology, Physics, Chemistry with NEET-level MCQ practice from day one.</p>
-          <div class="course-card-meta">
-            <div class="meta-item">📅 2 Years</div>
-            <div class="meta-item">👥 Max 30/batch</div>
-            <div class="meta-item">📖 PCB</div>
-          </div>
-        </div>
-        <div class="course-card-footer">
-          <div class="price">₹1,10,000 <span>/year</span></div>
-          <a href="#" class="enroll-btn" onclick="showPage('admission')">Enroll</a>
-        </div>
-      </div>
-
-      <div class="course-card" data-cat="neet">
-        <div class="course-card-top">
-          <span class="course-tag tag-neet">NEET</span>
-          <h3>NEET 1-Year Power Batch</h3>
-          <p>For 12th pass students. Complete revision, 500+ MCQs daily, and weekly full-length NTA mocks.</p>
-          <div class="course-card-meta">
-            <div class="meta-item">📅 1 Year</div>
-            <div class="meta-item">👥 Max 25/batch</div>
-            <div class="meta-item">🏥 AIIMS Track</div>
-          </div>
-        </div>
-        <div class="course-card-footer">
-          <div class="price">₹90,000 <span>/year</span></div>
-          <a href="#" class="enroll-btn" onclick="showPage('admission')">Enroll</a>
-        </div>
-      </div>
-
-      <div class="course-card" data-cat="neet">
-        <div class="course-card-top">
-          <span class="course-tag tag-neet">NEET</span>
-          <h3>NEET Crash Course</h3>
-          <p>60-day intensive before the exam. High-yield topics, revision notes, PYQ mastery sessions.</p>
-          <div class="course-card-meta">
-            <div class="meta-item">📅 60 Days</div>
-            <div class="meta-item">👥 Max 40/batch</div>
-            <div class="meta-item">⚡ Intensive</div>
-          </div>
-        </div>
-        <div class="course-card-footer">
-          <div class="price">₹18,000 <span>/course</span></div>
-          <a href="#" class="enroll-btn" onclick="showPage('admission')">Enroll</a>
-        </div>
-      </div>
-
-      <div class="course-card" data-cat="boards">
-        <div class="course-card-top">
-          <span class="course-tag tag-boards">BOARDS</span>
-          <h3>11th CBSE Science</h3>
-          <p>Strong foundation building for PCM or PCB. Board + competitive mindset from class 11 itself.</p>
-          <div class="course-card-meta">
-            <div class="meta-item">📅 1 Year</div>
-            <div class="meta-item">👥 Max 35/batch</div>
-            <div class="meta-item">📚 CBSE / JK Board</div>
-          </div>
-        </div>
-        <div class="course-card-footer">
-          <div class="price">₹55,000 <span>/year</span></div>
-          <a href="#" class="enroll-btn" onclick="showPage('admission')">Enroll</a>
-        </div>
-      </div>
-
-      <div class="course-card" data-cat="boards">
-        <div class="course-card-top">
-          <span class="course-tag tag-boards">BOARDS</span>
-          <h3>12th Board Excellence</h3>
-          <p>100% board syllabus + past 10-year paper analysis. Target 95%+ in CBSE / JK Board exams.</p>
-          <div class="course-card-meta">
-            <div class="meta-item">📅 1 Year</div>
-            <div class="meta-item">👥 Max 35/batch</div>
-            <div class="meta-item">🎯 95%+ Target</div>
-          </div>
-        </div>
-        <div class="course-card-footer">
-          <div class="price">₹60,000 <span>/year</span></div>
-          <a href="#" class="enroll-btn" onclick="showPage('admission')">Enroll</a>
-        </div>
-      </div>
-
+      <div class="course-card" data-cat="jee"><div class="course-card-top"><span class="course-tag tag-jee">JEE</span><h3>JEE 2-Year Foundation</h3><p>Complete 11th + 12th syllabus with JEE-level depth.</p><div class="course-card-meta"><div class="meta-item">📅 2 Years</div><div class="meta-item">👥 Max 30/batch</div></div></div><div class="course-card-footer"><div class="price">₹1,20,000 <span>/year</span></div><a class="enroll-btn" onclick="showPage('admission')">Enroll</a></div></div>
+      <div class="course-card" data-cat="jee"><div class="course-card-top"><span class="course-tag tag-jee">JEE</span><h3>JEE 1-Year Intensive</h3><p>For 12th students. Fast-track revision + 200+ mock tests.</p><div class="course-card-meta"><div class="meta-item">📅 1 Year</div><div class="meta-item">👥 Max 25/batch</div></div></div><div class="course-card-footer"><div class="price">₹95,000 <span>/year</span></div><a class="enroll-btn" onclick="showPage('admission')">Enroll</a></div></div>
+      <div class="course-card" data-cat="jee"><div class="course-card-top"><span class="course-tag tag-jee">JEE</span><h3>JEE Dropper Batch</h3><p>Specially designed for serious repeaters. High intensity.</p><div class="course-card-meta"><div class="meta-item">📅 11 Months</div><div class="meta-item">👥 Max 20/batch</div></div></div><div class="course-card-footer"><div class="price">₹85,000 <span>/year</span></div><a class="enroll-btn" onclick="showPage('admission')">Enroll</a></div></div>
+      <div class="course-card" data-cat="neet"><div class="course-card-top"><span class="course-tag tag-neet">NEET</span><h3>NEET 2-Year Foundation</h3><p>Full 11th + 12th Biology, Physics, Chemistry.</p><div class="course-card-meta"><div class="meta-item">📅 2 Years</div><div class="meta-item">👥 Max 30/batch</div></div></div><div class="course-card-footer"><div class="price">₹1,10,000 <span>/year</span></div><a class="enroll-btn" onclick="showPage('admission')">Enroll</a></div></div>
+      <div class="course-card" data-cat="neet"><div class="course-card-top"><span class="course-tag tag-neet">NEET</span><h3>NEET 1-Year Power Batch</h3><p>Complete revision, 500+ MCQs daily, weekly full-length mocks.</p><div class="course-card-meta"><div class="meta-item">📅 1 Year</div><div class="meta-item">👥 Max 25/batch</div></div></div><div class="course-card-footer"><div class="price">₹90,000 <span>/year</span></div><a class="enroll-btn" onclick="showPage('admission')">Enroll</a></div></div>
+      <div class="course-card" data-cat="neet"><div class="course-card-top"><span class="course-tag tag-neet">NEET</span><h3>NEET Crash Course</h3><p>60-day intensive before the exam. High-yield topics.</p><div class="course-card-meta"><div class="meta-item">📅 60 Days</div><div class="meta-item">👥 Max 40/batch</div></div></div><div class="course-card-footer"><div class="price">₹18,000 <span>/course</span></div><a class="enroll-btn" onclick="showPage('admission')">Enroll</a></div></div>
+      <div class="course-card" data-cat="boards"><div class="course-card-top"><span class="course-tag tag-boards">BOARDS</span><h3>11th CBSE Science</h3><p>Strong foundation building for PCM or PCB.</p><div class="course-card-meta"><div class="meta-item">📅 1 Year</div><div class="meta-item">👥 Max 35/batch</div></div></div><div class="course-card-footer"><div class="price">₹55,000 <span>/year</span></div><a class="enroll-btn" onclick="showPage('admission')">Enroll</a></div></div>
+      <div class="course-card" data-cat="boards"><div class="course-card-top"><span class="course-tag tag-boards">BOARDS</span><h3>12th Board Excellence</h3><p>100% board syllabus + past 10-year paper analysis.</p><div class="course-card-meta"><div class="meta-item">📅 1 Year</div><div class="meta-item">👥 Max 35/batch</div></div></div><div class="course-card-footer"><div class="price">₹60,000 <span>/year</span></div><a class="enroll-btn" onclick="showPage('admission')">Enroll</a></div></div>
     </div>
   </div>
-
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="nav-logo"><div class="logo-icon">A</div><span>ImQaaifah Academy</span></div>
-        <p>Kashmir's premier coaching institute for JEE, NEET, and Board examinations since 2008.</p>
-      </div>
-      <div class="footer-col"><h4>Programs</h4><a href="#" onclick="showPage('courses')">All Courses</a></div>
-      <div class="footer-col"><h4>Info</h4><a href="#" onclick="showPage('faculty')">Faculty</a><a href="#" onclick="showPage('results')">Results</a></div>
-      <div class="footer-col"><h4>Contact</h4><div class="footer-contact-item"><span>📞</span><span>+91 194 247 0000</span></div></div>
-    </div>
-    <div class="footer-bottom"><p>© 2025 ImQaaifah Academy</p></div>
-  </footer>
+  <footer><div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.08); padding: 22px 5%;"><p>© 2025 ImQaaifah Academy</p></div></footer>
 </div>
 
-<!-- ===== FACULTY PAGE ===== -->
+<!-- FACULTY PAGE -->
 <div class="page" id="page-faculty">
-  <div class="page-header">
-    <h2>Our Faculty</h2>
-    <p>80+ educators from IITs, NITs, and AIIMS — all passionate about transforming students into toppers.</p>
-  </div>
-  <section style="padding: 60px 5%;">
-    <div class="faculty-grid">
-
-      <div class="faculty-card">
-        <div class="faculty-avatar-wrap">
-          <div class="faculty-avatar" style="background: rgba(59,91,219,0.2); color: #7da8f5;">PK</div>
-        </div>
-        <div class="faculty-body">
-          <h3>Prof. Parvaiz Koul</h3>
-          <div class="subject">Physics — JEE / NEET</div>
-          <div class="exp">M.Sc, IIT Roorkee · 18 Years Experience</div>
-          <div class="faculty-tags"><span class="faculty-tag">Mechanics</span><span class="faculty-tag">Optics</span><span class="faculty-tag">Electrostatics</span></div>
-        </div>
-      </div>
-
-      <div class="faculty-card">
-        <div class="faculty-avatar-wrap">
-          <div class="faculty-avatar" style="background: rgba(26,158,92,0.2); color: #5de0a0;">SR</div>
-        </div>
-        <div class="faculty-body">
-          <h3>Dr. Shahida Rashid</h3>
-          <div class="subject">Biology — NEET</div>
-          <div class="exp">MBBS, AIIMS Delhi · 14 Years Experience</div>
-          <div class="faculty-tags"><span class="faculty-tag">Botany</span><span class="faculty-tag">Zoology</span><span class="faculty-tag">Genetics</span></div>
-        </div>
-      </div>
-
-      <div class="faculty-card">
-        <div class="faculty-avatar-wrap">
-          <div class="faculty-avatar" style="background: rgba(232,166,0,0.2); color: #d4a017;">MA</div>
-        </div>
-        <div class="faculty-body">
-          <h3>Prof. Mohammad Arif</h3>
-          <div class="subject">Mathematics — JEE</div>
-          <div class="exp">B.Tech, IIT Bombay · 16 Years Experience</div>
-          <div class="faculty-tags"><span class="faculty-tag">Calculus</span><span class="faculty-tag">Algebra</span><span class="faculty-tag">Coord. Geo</span></div>
-        </div>
-      </div>
-
-      <div class="faculty-card">
-        <div class="faculty-avatar-wrap">
-          <div class="faculty-avatar" style="background: rgba(200,80,80,0.18); color: #f08080;">NB</div>
-        </div>
-        <div class="faculty-body">
-          <h3>Prof. Nusrat Bano</h3>
-          <div class="subject">Chemistry — JEE / NEET</div>
-          <div class="exp">M.Sc Chemistry, NIT Srinagar · 12 Years</div>
-          <div class="faculty-tags"><span class="faculty-tag">Organic</span><span class="faculty-tag">Physical</span><span class="faculty-tag">Inorganic</span></div>
-        </div>
-      </div>
-
-      <div class="faculty-card">
-        <div class="faculty-avatar-wrap">
-          <div class="faculty-avatar" style="background: rgba(120,80,200,0.2); color: #b89aee;">IM</div>
-        </div>
-        <div class="faculty-body">
-          <h3>Prof. Irfan Mir</h3>
-          <div class="subject">Physics — Boards + JEE</div>
-          <div class="exp">B.Tech, IIT Delhi · 10 Years Experience</div>
-          <div class="faculty-tags"><span class="faculty-tag">Modern Physics</span><span class="faculty-tag">Waves</span></div>
-        </div>
-      </div>
-
-      <div class="faculty-card">
-        <div class="faculty-avatar-wrap">
-          <div class="faculty-avatar" style="background: rgba(26,158,92,0.18); color: #5de0a0;">ZA</div>
-        </div>
-        <div class="faculty-body">
-          <h3>Dr. Zubair Ahmad</h3>
-          <div class="subject">Biology — NEET / Boards</div>
-          <div class="exp">M.Sc Biotechnology, Kashmir Univ · 11 Years</div>
-          <div class="faculty-tags"><span class="faculty-tag">Cell Biology</span><span class="faculty-tag">Ecology</span></div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-  <footer>
-    <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.08); padding: 22px 5%;"><p style="color:rgba(255,255,255,0.35);font-size:13px;">© 2025 ImQaaifah Academy</p></div>
-  </footer>
+  <div class="page-header"><h2>Our Faculty</h2><p>80+ educators from IITs, NITs, and AIIMS — all passionate about transforming students into toppers.</p></div>
+  <section style="padding: 60px 5%;"><div class="faculty-grid">
+    <div class="faculty-card"><div class="faculty-avatar-wrap"><div class="faculty-avatar" style="background: rgba(59,91,219,0.2); color: #7da8f5;">PK</div></div><div class="faculty-body"><h3>Prof. Parvaiz Koul</h3><div class="subject">Physics — JEE / NEET</div><div class="exp">M.Sc, IIT Roorkee · 18 Years</div><div class="faculty-tags"><span class="faculty-tag">Mechanics</span><span class="faculty-tag">Optics</span></div></div></div>
+    <div class="faculty-card"><div class="faculty-avatar-wrap"><div class="faculty-avatar" style="background: rgba(26,158,92,0.2); color: #5de0a0;">SR</div></div><div class="faculty-body"><h3>Dr. Shahida Rashid</h3><div class="subject">Biology — NEET</div><div class="exp">MBBS, AIIMS Delhi · 14 Years</div><div class="faculty-tags"><span class="faculty-tag">Botany</span><span class="faculty-tag">Zoology</span></div></div></div>
+    <div class="faculty-card"><div class="faculty-avatar-wrap"><div class="faculty-avatar" style="background: rgba(232,166,0,0.2); color: #d4a017;">MA</div></div><div class="faculty-body"><h3>Prof. Mohammad Arif</h3><div class="subject">Mathematics — JEE</div><div class="exp">B.Tech, IIT Bombay · 16 Years</div><div class="faculty-tags"><span class="faculty-tag">Calculus</span><span class="faculty-tag">Algebra</span></div></div></div>
+    <div class="faculty-card"><div class="faculty-avatar-wrap"><div class="faculty-avatar" style="background: rgba(200,80,80,0.18); color: #f08080;">NB</div></div><div class="faculty-body"><h3>Prof. Nusrat Bano</h3><div class="subject">Chemistry — JEE / NEET</div><div class="exp">M.Sc, NIT Srinagar · 12 Years</div><div class="faculty-tags"><span class="faculty-tag">Organic</span><span class="faculty-tag">Physical</span></div></div></div>
+    <div class="faculty-card"><div class="faculty-avatar-wrap"><div class="faculty-avatar" style="background: rgba(120,80,200,0.2); color: #b89aee;">IM</div></div><div class="faculty-body"><h3>Prof. Irfan Mir</h3><div class="subject">Physics — Boards + JEE</div><div class="exp">B.Tech, IIT Delhi · 10 Years</div><div class="faculty-tags"><span class="faculty-tag">Modern Physics</span><span class="faculty-tag">Waves</span></div></div></div>
+    <div class="faculty-card"><div class="faculty-avatar-wrap"><div class="faculty-avatar" style="background: rgba(26,158,92,0.18); color: #5de0a0;">ZA</div></div><div class="faculty-body"><h3>Dr. Zubair Ahmad</h3><div class="subject">Biology — NEET / Boards</div><div class="exp">M.Sc Biotechnology · 11 Years</div><div class="faculty-tags"><span class="faculty-tag">Cell Biology</span><span class="faculty-tag">Ecology</span></div></div></div>
+  </div></section>
+  <footer><div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.08); padding: 22px 5%;"><p>© 2025 ImQaaifah Academy</p></div></footer>
 </div>
 
-<!-- ===== RESULTS PAGE ===== -->
+<!-- RESULTS PAGE -->
 <div class="page" id="page-results">
-  <div class="page-header">
-    <h2>Our Results</h2>
-    <p>Numbers that speak for themselves. Our students consistently rank among India's best.</p>
-    <div class="big-numbers" style="margin-top: 40px;">
-      <div class="big-num"><div class="n">340+</div><div class="l">IIT Selections (All-time)</div></div>
-      <div class="big-num"><div class="n">520+</div><div class="l">NEET Qualifiers (All-time)</div></div>
-      <div class="big-num"><div class="n">AIR 87</div><div class="l">Best JEE Rank 2024</div></div>
-      <div class="big-num"><div class="n">710</div><div class="l">Best NEET Score 2024</div></div>
-    </div>
+  <div class="page-header"><h2>Our Results</h2><p>Numbers that speak for themselves. Our students consistently rank among India's best.</p>
+    <div class="big-numbers" style="margin-top: 40px;"><div class="big-num"><div class="n">340+</div><div class="l">IIT Selections</div></div><div class="big-num"><div class="n">520+</div><div class="l">NEET Qualifiers</div></div><div class="big-num"><div class="n">AIR 87</div><div class="l">Best JEE Rank</div></div><div class="big-num"><div class="n">710</div><div class="l">Best NEET Score</div></div></div>
   </div>
-
-  <section style="padding: 60px 5%;">
-    <div style="max-width: 1100px; margin: 0 auto;">
-      <div style="text-align:center; margin-bottom: 36px;">
-        <span class="section-label">Batch of 2024</span>
-        <h2 class="section-title">JEE & NEET Toppers</h2>
-      </div>
-      <div class="toppers-grid">
-        <div class="topper-card">
-          <span class="topper-rank rank-1">🥇 AIR 87</span>
-          <div class="topper-av" style="background:rgba(232,166,0,0.15);color:#b07e00;">IA</div>
-          <h4>Imtiyaz Ahmad</h4>
-          <div class="score">AIR 87</div>
-          <div class="exam">JEE Advanced 2024</div>
-        </div>
-        <div class="topper-card">
-          <span class="topper-rank rank-top">Top 300</span>
-          <div class="topper-av" style="background:rgba(59,91,219,0.1);color:#7da8f5;">AM</div>
-          <h4>Aadil Mir</h4>
-          <div class="score">AIR 214</div>
-          <div class="exam">JEE Advanced 2024</div>
-        </div>
-        <div class="topper-card">
-          <span class="topper-rank rank-top">Top 400</span>
-          <div class="topper-av" style="background:rgba(59,91,219,0.1);color:#7da8f5;">FS</div>
-          <h4>Farhan Sheikh</h4>
-          <div class="score">AIR 312</div>
-          <div class="exam">JEE Advanced 2024</div>
-        </div>
-        <div class="topper-card">
-          <span class="topper-rank rank-1">🥇 710/720</span>
-          <div class="topper-av" style="background:rgba(26,158,92,0.15);color:#1a9e5c;">RW</div>
-          <h4>Rubina Wani</h4>
-          <div class="score">710/720</div>
-          <div class="exam">NEET UG 2024</div>
-        </div>
-        <div class="topper-card">
-          <span class="topper-rank rank-top">Top 400</span>
-          <div class="topper-av" style="background:rgba(26,158,92,0.15);color:#1a9e5c;">SP</div>
-          <h4>Sana Parveen</h4>
-          <div class="score">AIR 312</div>
-          <div class="exam">NEET UG 2024</div>
-        </div>
-        <div class="topper-card">
-          <span class="topper-rank rank-top">Top 500</span>
-          <div class="topper-av" style="background:rgba(26,158,92,0.15);color:#1a9e5c;">NB</div>
-          <h4>Nida Bashir</h4>
-          <div class="score">698/720</div>
-          <div class="exam">NEET UG 2024</div>
-        </div>
-        <div class="topper-card">
-          <span class="topper-rank rank-top">Top 1000</span>
-          <div class="topper-av" style="background:rgba(59,91,219,0.1);color:#7da8f5;">ZK</div>
-          <h4>Zahid Khan</h4>
-          <div class="score">AIR 876</div>
-          <div class="exam">JEE Advanced 2024</div>
-        </div>
-        <div class="topper-card">
-          <span class="topper-rank rank-top">Top 1000</span>
-          <div class="topper-av" style="background:rgba(232,166,0,0.15);color:#b07e00;">HM</div>
-          <h4>Hafsa Mushtaq</h4>
-          <div class="score">AIR 943</div>
-          <div class="exam">JEE Main 2024</div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <footer>
-    <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.08); padding: 22px 5%;"><p style="color:rgba(255,255,255,0.35);font-size:13px;">© 2025 ImQaaifah Academy</p></div>
-  </footer>
+  <section style="padding: 60px 5%;"><div style="max-width: 1100px; margin: 0 auto;"><div style="text-align:center; margin-bottom: 36px;"><span class="section-label">Batch of 2024</span><h2 class="section-title">JEE & NEET Toppers</h2></div>
+  <div class="toppers-grid">
+    <div class="topper-card"><span class="topper-rank rank-1">🥇 AIR 87</span><div class="topper-av" style="background:rgba(232,166,0,0.15);color:#b07e00;">IA</div><h4>Imtiyaz Ahmad</h4><div class="score">AIR 87</div><div class="exam">JEE Advanced 2024</div></div>
+    <div class="topper-card"><span class="topper-rank rank-top">Top 300</span><div class="topper-av" style="background:rgba(59,91,219,0.1);color:#7da8f5;">AM</div><h4>Aadil Mir</h4><div class="score">AIR 214</div><div class="exam">JEE Advanced 2024</div></div>
+    <div class="topper-card"><span class="topper-rank rank-top">Top 400</span><div class="topper-av" style="background:rgba(59,91,219,0.1);color:#7da8f5;">FS</div><h4>Farhan Sheikh</h4><div class="score">AIR 312</div><div class="exam">JEE Advanced 2024</div></div>
+    <div class="topper-card"><span class="topper-rank rank-1">🥇 710/720</span><div class="topper-av" style="background:rgba(26,158,92,0.15);color:#1a9e5c;">RW</div><h4>Rubina Wani</h4><div class="score">710/720</div><div class="exam">NEET UG 2024</div></div>
+    <div class="topper-card"><span class="topper-rank rank-top">Top 400</span><div class="topper-av" style="background:rgba(26,158,92,0.15);color:#1a9e5c;">SP</div><h4>Sana Parveen</h4><div class="score">AIR 312</div><div class="exam">NEET UG 2024</div></div>
+    <div class="topper-card"><span class="topper-rank rank-top">Top 500</span><div class="topper-av" style="background:rgba(26,158,92,0.15);color:#1a9e5c;">NB</div><h4>Nida Bashir</h4><div class="score">698/720</div><div class="exam">NEET UG 2024</div></div>
+  </div></div></section>
+  <footer><div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.08); padding: 22px 5%;"><p>© 2025 ImQaaifah Academy</p></div></footer>
 </div>
 
-<!-- ===== ADMISSION PAGE ===== -->
+<!-- ADMISSION PAGE - WITH GOOGLE FORM -->
 <div class="page" id="page-admission">
   <div class="page-header">
     <h2>Admission 2025–26</h2>
@@ -922,319 +484,71 @@
     <div class="admission-grid">
       <div class="admission-steps">
         <h3 style="font-family:'Playfair Display',serif; font-size:26px; font-weight:900; color:var(--navy); margin-bottom:32px;">How to Join</h3>
-        <div class="step-item">
-          <div class="step-num">1</div>
-          <div class="step-content">
-            <h4>Fill the Application Form</h4>
-            <p>Complete the online application with your academic details and course preference. Takes under 3 minutes.</p>
-          </div>
-        </div>
+        <div class="step-item"><div class="step-num">1</div><div class="step-content"><h4>Fill the Application Form</h4><p>Complete the online application with your academic details. Takes under 3 minutes.</p></div></div>
         <div class="step-connector"></div>
-        <div class="step-item">
-          <div class="step-num">2</div>
-          <div class="step-content">
-            <h4>Appear for Scholarship Test (ASAT)</h4>
-            <p>Our ImQaaifah Scholarship & Admission Test is held every Sunday. Top scorers receive merit scholarships up to 100%.</p>
-          </div>
-        </div>
+        <div class="step-item"><div class="step-num">2</div><div class="step-content"><h4>Appear for Scholarship Test (ASAT)</h4><p>Our ImQaaifah Scholarship & Admission Test is held every Sunday. Top scorers receive merit scholarships up to 100%.</p></div></div>
         <div class="step-connector"></div>
-        <div class="step-item">
-          <div class="step-num">3</div>
-          <div class="step-content">
-            <h4>Counseling Session</h4>
-            <p>A 1-on-1 meeting with our academic counselors to finalize course selection and study plan.</p>
-          </div>
-        </div>
+        <div class="step-item"><div class="step-num">3</div><div class="step-content"><h4>Counseling Session</h4><p>A 1-on-1 meeting with our academic counselors to finalize course selection.</p></div></div>
         <div class="step-connector"></div>
-        <div class="step-item">
-          <div class="step-num">4</div>
-          <div class="step-content">
-            <h4>Fee Payment & Batch Allotment</h4>
-            <p>Confirm your seat with fee payment. Batch allotment is based on test performance and preference.</p>
-          </div>
-        </div>
-
+        <div class="step-item"><div class="step-num">4</div><div class="step-content"><h4>Fee Payment & Batch Allotment</h4><p>Confirm your seat with fee payment. Batch allotment based on test performance.</p></div></div>
         <div style="background: var(--cream-dark); border-radius: var(--radius); padding: 20px 22px; margin-top: 28px; border-left: 4px solid var(--gold);">
           <h4 style="font-size:15px; font-weight:700; color:var(--navy); margin-bottom:6px;">📅 Next ASAT Date</h4>
           <p style="font-size:14px; color:var(--text-muted);">Sunday, 20 April 2025 · 10:00 AM at all our campuses. Free registration required.</p>
         </div>
       </div>
 
-      <div class="admission-form" id="admission-form-wrap">
-        <h3>Apply Now</h3>
+      <!-- GOOGLE FORM EMBED - WORKING! DATA SHEET MEIN JAYEGA -->
+      <div class="admission-form">
+        <h3>🚀 Apply Now</h3>
         <p class="sub">Fill in your details and we'll get back to you within 24 hours.</p>
-        <div id="form-fields">
-          <div class="form-row">
-            <div class="form-group">
-              <label>First Name</label>
-              <input type="text" id="f-fname" placeholder="Aadil">
-            </div>
-            <div class="form-group">
-              <label>Last Name</label>
-              <input type="text" id="f-lname" placeholder="Mir">
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Phone Number</label>
-            <input type="tel" id="f-phone" placeholder="+91 XXXXX XXXXX">
-          </div>
-          <div class="form-group">
-            <label>Email Address</label>
-            <input type="email" id="f-email" placeholder="student@email.com">
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Current Class</label>
-              <select id="f-class">
-                <option value="">Select</option>
-                <option>Class 10 (Upcoming 11th)</option>
-                <option>Class 11</option>
-                <option>Class 12</option>
-                <option>12th Pass (Dropper)</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Target Exam</label>
-              <select id="f-exam">
-                <option value="">Select</option>
-                <option>JEE Main</option>
-                <option>JEE Advanced</option>
-                <option>NEET UG</option>
-                <option>AIIMS</option>
-                <option>Boards Only</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Any Message (optional)</label>
-            <textarea id="f-msg" placeholder="Questions, hostel requirement, scholarship info..."></textarea>
-          </div>
-          <button class="submit-btn" onclick="submitForm()">Submit Application →</button>
-        </div>
-        <div class="form-success" id="form-success">
-          <div class="icon">🎉</div>
-          <h4>Application Submitted!</h4>
-          <p>Thank you for applying to ImQaaifah Academy. Our counselor will call you within 24 hours. See you soon!</p>
+        
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScHoZ645HbhTS7RyduGatbUHsw8Z1pi1i1LS9Lv6XC20_RQfQ/viewform?embedded=true" 
+                width="100%" 
+                height="900" 
+                frameborder="0" 
+                marginheight="0" 
+                marginwidth="0">
+          Loading…
+        </iframe>
+        
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(10,15,46,0.1); text-align: center;">
+          <p style="font-size: 13px; color: var(--text-muted);">📞 For assistance: <strong style="color: var(--gold);">+91 194 247 0000</strong> | ✉️ info@ImQaaifahacademy.in</p>
         </div>
       </div>
     </div>
   </section>
-  <footer>
-    <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.08); padding: 22px 5%;"><p style="color:rgba(255,255,255,0.35);font-size:13px;">© 2025 ImQaaifah Academy</p></div>
-  </footer>
+  <footer><div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.08); padding: 22px 5%;"><p>© 2025 ImQaaifah Academy</p></div></footer>
 </div>
 
-<!-- ===== CHATBOT ===== -->
-<button class="chat-fab" id="chat-fab" onclick="toggleChat()">
-  💬
-  <div class="notif">1</div>
-</button>
-
-<div class="chat-window" id="chat-window">
-  <div class="chat-header">
-    <div class="chat-avatar">🎓</div>
-    <div class="chat-header-info">
-      <h4>ImQaaifah Support Bot</h4>
-      <p><span class="online-dot"></span>Online · Typically replies instantly</p>
-    </div>
-    <button class="chat-close" onclick="toggleChat()">×</button>
-  </div>
-  <div class="chat-messages" id="chat-messages"></div>
-  <div class="chat-quick-replies" id="quick-replies"></div>
-  <div class="chat-input-row">
-    <input type="text" class="chat-input" id="chat-input" placeholder="Ask about courses, fees, admission..." onkeydown="if(event.key==='Enter')sendChat()">
-    <button class="chat-send" id="chat-send-btn" onclick="sendChat()">➤</button>
-  </div>
-</div>
+<!-- CHATBOT - WORKING -->
+<script type="module">
+  import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+  createChat({
+    webhookUrl: 'https://abhijeet01.app.n8n.cloud/webhook/2e566fcc-4c7d-4397-89d8-fc49d6c637ed/chat'
+  });
+</script>
 
 <script>
-// ===== NAVIGATION =====
+// NAVIGATION
 function showPage(name) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-' + name).classList.add('active');
   document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
   window.scrollTo(0, 0);
-  const menuLinks = document.querySelectorAll('.nav-links a');
-  menuLinks.forEach(a => {
-    if (a.getAttribute('onclick') && a.getAttribute('onclick').includes("'" + name + "'")) a.classList.add('active');
-  });
-  document.getElementById('nav-links').classList.remove('open');
 }
 
 function toggleMenu() {
   document.getElementById('nav-links').classList.toggle('open');
 }
 
-// ===== COURSE FILTER =====
+// COURSE FILTER
 function filterCourses(cat, btn) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   document.querySelectorAll('.course-card').forEach(c => {
-    if (cat === 'all' || c.dataset.cat === cat) {
-      c.style.display = '';
-    } else {
-      c.style.display = 'none';
-    }
+    c.style.display = (cat === 'all' || c.dataset.cat === cat) ? '' : 'none';
   });
 }
-
-// ===== FORM =====
-function submitForm() {
-  const fname = document.getElementById('f-fname').value.trim();
-  const phone = document.getElementById('f-phone').value.trim();
-  if (!fname || !phone) {
-    alert('Please fill in at least your name and phone number.');
-    return;
-  }
-  document.getElementById('form-fields').style.display = 'none';
-  document.getElementById('form-success').style.display = 'block';
-}
-
-// ===== CHATBOT =====
-const chatKnowledge = {
-  greetings: ['hi','hello','hey','namaste','salam','assalam'],
-  courses: ['course','courses','program','programs','jee','neet','class 11','class 12','board','dropper','crash'],
-  fees: ['fee','fees','cost','price','how much','charges','payment','scholarship','discount'],
-  admission: ['admit','admission','apply','join','enroll','register','form'],
-  faculty: ['teacher','faculty','sir','mam','staff','who teaches'],
-  results: ['result','rank','air','score','selection','topper','selected'],
-  timing: ['time','timing','schedule','hours','batch','when'],
-  location: ['address','location','where','place','campus','hostel'],
-  contact: ['phone','contact','number','call','email','whatsapp'],
-  test: ['asat','test','exam','scholarship test','entry test'],
-};
-
-const responses = {
-  greetings: `👋 Salaam! Welcome to **ImQaaifah Academy**! I'm your academic guide. How can I help you today?\n\nI can answer questions about our courses, fees, admission process, faculty, and results.`,
-  courses: `📚 **Our Programs:**\n\n⚛️ **JEE** — 2-Year Foundation, 1-Year Intensive, Dropper Batch\n🧬 **NEET** — 2-Year Foundation, 1-Year Power Batch, Crash Course\n📖 **Boards** — 11th & 12th CBSE / JK Board Excellence\n\nAll courses have batch sizes of max 20–35 students. Want details on any specific course?`,
-  fees: `💰 **Fee Structure (2025–26):**\n\n• JEE 2-Year: ₹1,20,000/year\n• JEE 1-Year: ₹95,000/year\n• NEET 2-Year: ₹1,10,000/year\n• NEET 1-Year: ₹90,000/year\n• 11th Boards: ₹55,000/year\n• 12th Boards: ₹60,000/year\n• Crash Course: ₹18,000\n\n🎓 **Scholarships available up to 100%** based on ASAT performance!`,
-  admission: `📋 **Admission Process:**\n\n1️⃣ Fill the online application form\n2️⃣ Appear for ASAT (ImQaaifah Scholarship & Admission Test)\n3️⃣ Attend counseling session\n4️⃣ Pay fees & get batch allotment\n\n📅 **Next ASAT: Sunday, 20 April 2025 at 10AM**\n\nWant to apply now? Just click "Enroll Now" in the navigation!`,
-  faculty: `👨🏫 **Our Faculty Highlights:**\n\n• 80+ educators from IITs, NITs & AIIMS\n• Prof. Parvaiz Koul — Physics (IIT Roorkee, 18 yrs)\n• Dr. Shahida Rashid — Biology (AIIMS Delhi, 14 yrs)\n• Prof. Mohammad Arif — Maths (IIT Bombay, 16 yrs)\n• Prof. Nusrat Bano — Chemistry (NIT Srinagar, 12 yrs)\n\nAll faculty have personally cracked competitive exams!`,
-  results: `🏆 **2024 Results Highlights:**\n\n• 340+ IIT Selections (All-time)\n• 520+ NEET Qualifiers\n• **Best JEE Rank: AIR 87** (Imtiyaz Ahmad)\n• **Best NEET Score: 710/720** (Rubina Wani → AIIMS Delhi)\n• 98% overall selection rate\n\nCheck our Results page for full topper list!`,
-  timing: `⏰ **Batch Timings:**\n\n🌅 Morning Batch: 7:00 AM – 1:00 PM\n🌞 Afternoon Batch: 1:00 PM – 7:00 PM\n🌙 Evening Batch: 3:00 PM – 9:00 PM\n\nDropper batches run 8–10 hours/day with regular breaks. Classes are 6 days/week (Mon–Sat).`,
-  location: `📍 **Our Campuses:**\n\n🏫 **Main Campus:** Residency Road, Srinagar — 190001\n🏫 **Branch 1:** Lal Chowk, Srinagar\n🏫 **Branch 2:** Sopore, North Kashmir\n\n🏠 **Hostel available** near Main Campus for outstation students (separate for boys & girls).`,
-  contact: `📞 **Contact Us:**\n\n📱 Phone: +91 194 247 0000\n💬 WhatsApp: +91 98765 43210\n✉️ Email: info@ImQaaifahacademy.in\n🕐 Mon–Sat: 8AM – 8PM\n\nOr visit us at Residency Road, Srinagar!`,
-  test: `📝 **About ASAT (ImQaaifah Scholarship & Admission Test):**\n\n• Held every **Sunday at 10 AM**\n• **Next date: 20 April 2025**\n• Duration: 2 hours\n• Subjects: PCM / PCB depending on target\n• **Scholarships up to 100% fee waiver** for top performers\n• Free to register — just bring your 10th marksheet\n\nWant to register for ASAT?`,
-  default: `I'm not sure about that specific question, but I'm here to help! 😊\n\nYou can ask me about:\n• **Courses & Programs**\n• **Fees & Scholarships**\n• **Admission Process**\n• **Faculty & Teaching**\n• **Results & Rankings**\n• **Timings & Location**\n\nOr call us directly: **+91 194 247 0000**`,
-};
-
-const quickReplies = [
-  ['📚 Courses', 'Tell me about your courses'],
-  ['💰 Fees', 'What are the fee structures?'],
-  ['📋 Admission', 'How to apply for admission?'],
-  ['🏆 Results', 'Show me your results'],
-  ['📅 ASAT Test', 'Tell me about ASAT'],
-];
-
-let chatOpen = false;
-let firstOpen = true;
-
-function toggleChat() {
-  chatOpen = !chatOpen;
-  const win = document.getElementById('chat-window');
-  const fab = document.getElementById('chat-fab');
-  if (chatOpen) {
-    win.classList.add('open');
-    fab.querySelector('.notif').style.display = 'none';
-    if (firstOpen) {
-      firstOpen = false;
-      setTimeout(() => {
-        addBotMessage(responses.greetings);
-        renderQuickReplies();
-      }, 400);
-    }
-    setTimeout(() => document.getElementById('chat-input').focus(), 300);
-  } else {
-    win.classList.remove('open');
-  }
-}
-
-function addBotMessage(text) {
-  const msgs = document.getElementById('chat-messages');
-  const div = document.createElement('div');
-  div.className = 'msg bot';
-  const formattedText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
-  div.innerHTML = `<div class="msg-bubble">${formattedText}</div><div class="msg-time">${getTime()}</div>`;
-  msgs.appendChild(div);
-  msgs.scrollTop = msgs.scrollHeight;
-}
-
-function addUserMessage(text) {
-  const msgs = document.getElementById('chat-messages');
-  const div = document.createElement('div');
-  div.className = 'msg user';
-  div.innerHTML = `<div class="msg-bubble">${text}</div><div class="msg-time">${getTime()}</div>`;
-  msgs.appendChild(div);
-  msgs.scrollTop = msgs.scrollHeight;
-}
-
-function showTyping() {
-  const msgs = document.getElementById('chat-messages');
-  const div = document.createElement('div');
-  div.className = 'msg bot typing-wrap';
-  div.innerHTML = `<div class="typing-indicator"><span></span><span></span><span></span></div>`;
-  msgs.appendChild(div);
-  msgs.scrollTop = msgs.scrollHeight;
-  return div;
-}
-
-function getTime() {
-  return new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
-}
-
-function classify(input) {
-  const low = input.toLowerCase();
-  for (const [key, keywords] of Object.entries(chatKnowledge)) {
-    if (keywords.some(k => low.includes(k))) return key;
-  }
-  return 'default';
-}
-
-function sendChat() {
-  const inp = document.getElementById('chat-input');
-  const text = inp.value.trim();
-  if (!text) return;
-  inp.value = '';
-  document.getElementById('quick-replies').innerHTML = '';
-  addUserMessage(text);
-  const btn = document.getElementById('chat-send-btn');
-  btn.disabled = true;
-  const typingEl = showTyping();
-  const delay = 700 + Math.random() * 600;
-  setTimeout(() => {
-    typingEl.remove();
-    const category = classify(text);
-    addBotMessage(responses[category]);
-    btn.disabled = false;
-    renderQuickReplies();
-  }, delay);
-}
-
-function sendQuickReply(text) {
-  document.getElementById('chat-input').value = text;
-  sendChat();
-}
-
-function renderQuickReplies() {
-  const qr = document.getElementById('quick-replies');
-  qr.innerHTML = '';
-  const toShow = quickReplies.slice(0, 3);
-  toShow.forEach(([label, msg]) => {
-    const btn = document.createElement('button');
-    btn.className = 'qr-btn';
-    btn.textContent = label;
-    btn.onclick = () => sendQuickReply(msg);
-    qr.appendChild(btn);
-  });
-}
-</script>
-<link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
-<script type="module">
-	import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
-
-	createChat({
-		webhookUrl: 'https://abhijeet01.app.n8n.cloud/webhook/2e566fcc-4c7d-4397-89d8-fc49d6c637ed/chat'
-	});
 </script>
 </body>
 </html>
